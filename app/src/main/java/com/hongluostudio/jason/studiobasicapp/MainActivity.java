@@ -1,5 +1,6 @@
 package com.hongluostudio.jason.studiobasicapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbar.setNavigationIcon(R.drawable.toolbarnavigationicon);
+        //toolbar.setLogo(R.drawable.toolbarlogo);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -44,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(	this,"Setting is clicked", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if (id == R.id.action_installedapp) {
+            Toast.makeText(	this,"InstalledApp is clicked", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, InstalledApp.class);
+            startActivity(intent);
             return true;
         }
 

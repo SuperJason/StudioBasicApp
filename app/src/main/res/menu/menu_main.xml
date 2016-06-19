@@ -8,8 +8,8 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_nextdemo"
+        android:id="@+id/action_installedapp"
         android:orderInCategory="100"
-        android:title="@string/action_nextdemo"
+        android:title="@string/action_installedapp"
         app:showAsAction="never" />
 </menu>
