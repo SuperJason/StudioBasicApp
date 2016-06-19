@@ -13,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -45,6 +46,7 @@ public class InstalledApp extends AppCompatActivity {
             inflater = LayoutInflater.from(context);
             c = context;
             pakeageinfo = context.getPackageManager().getInstalledPackages(0);
+            Toast.makeText(context,pakeageinfo.size() + " Appes are Installed", Toast.LENGTH_SHORT).show();
         }
         @Override
         public int getCount() {
@@ -69,28 +71,20 @@ public class InstalledApp extends AppCompatActivity {
                 convertView = inflater.inflate(R.layout.list_item, null);
                 holder.icon = (ImageView) convertView.findViewById(R.id.icon);
                 holder.appsname = (TextView) convertView.findViewById(R.id.appsname);
-                holder.pname = (TextView) convertView.findViewById(R.id.pname);
-                holder.versionname = (TextView) convertView.findViewById(R.id.versionname);
-                holder.versioncode = (TextView) convertView.findViewById(R.id.versioncode);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
             PackageInfo pinfo = pakeageinfo.get(position);
             holder.icon.setImageDrawable(pinfo.applicationInfo.loadIcon(c.getPackageManager()));
-            holder.appsname.setText("名称："	+ pinfo.applicationInfo.loadLabel(c.getPackageManager()));
-            holder.pname.setText("包名：" + pinfo.applicationInfo.packageName);
-            holder.versionname.setText("版本名称：" + pinfo.versionName);
-            holder.versioncode.setText("版本号：" + pinfo.versionCode);
+            holder.appsname.setText(pinfo.applicationInfo.loadLabel(c.getPackageManager()));
+
             return convertView;
         }
 
         class ViewHolder {
             ImageView icon;
             TextView appsname;
-            TextView pname;
-            TextView versionname;
-            TextView versioncode;
         }
     }
 }

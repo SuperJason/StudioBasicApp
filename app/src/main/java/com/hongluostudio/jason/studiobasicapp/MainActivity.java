@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_installedapp) {
-            Toast.makeText(	this,"InstalledApp is clicked", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,"InstalledApp is clicked", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, InstalledApp.class);
             startActivity(intent);
             return true;

@@ -3,28 +3,33 @@
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="wrap_content">
 
-	<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
 		android:layout_height="wrap_content">
 
 		<!-- 图标 -->
-		<LinearLayout android:layout_width="45dip" android:layout_height="wrap_content" 
+		<LinearLayout
+			android:layout_width="45dip"
+			android:layout_height="wrap_content"
 			android:layout_gravity="center" >
-			<ImageView android:id="@+id/icon" android:layout_width="40dip"
-				android:layout_height="40dip" android:layout_gravity="center" />
+			<ImageView
+				android:id="@+id/icon"
+				android:layout_width="36dip"
+				android:layout_height="36dip"
+				android:layout_gravity="center" />
 		</LinearLayout>
 
 		<!-- 信息 -->
-		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
 			android:orientation="vertical">
 
-			<TextView android:id="@+id/appsname" android:layout_width="wrap_content"
+			<TextView
+				android:id="@+id/appsname"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content" />
-			<TextView android:id="@+id/pname" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" />
-			<TextView android:id="@+id/versionname"
-				android:layout_width="wrap_content" android:layout_height="wrap_content" />
-			<TextView android:id="@+id/versioncode"
-				android:layout_width="wrap_content" android:layout_height="wrap_content" />
 
 		</LinearLayout>
 
