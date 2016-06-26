@@ -2,6 +2,7 @@ package com.hongluostudio.jason.studiobasicapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +72,7 @@ public class InstalledApp extends AppCompatActivity {
                 convertView = inflater.inflate(R.layout.list_item, null);
                 holder.icon = (ImageView) convertView.findViewById(R.id.icon);
                 holder.appsname = (TextView) convertView.findViewById(R.id.appsname);
+                holder.appinfo = (TextView) convertView.findViewById(R.id.appinfo);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -78,6 +80,11 @@ public class InstalledApp extends AppCompatActivity {
             PackageInfo pinfo = pakeageinfo.get(position);
             holder.icon.setImageDrawable(pinfo.applicationInfo.loadIcon(c.getPackageManager()));
             holder.appsname.setText(pinfo.applicationInfo.loadLabel(c.getPackageManager()));
+            if ((pinfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == ApplicationInfo.FLAG_SYSTEM) {
+                holder.appinfo.setText(pinfo.applicationInfo.packageName + "(system)");
+            } else {
+                holder.appinfo.setText(pinfo.applicationInfo.packageName);
+            }
 
             return convertView;
         }
@@ -85,6 +92,7 @@ public class InstalledApp extends AppCompatActivity {
         class ViewHolder {
             ImageView icon;
             TextView appsname;
+            TextView appinfo;
         }
     }
 }

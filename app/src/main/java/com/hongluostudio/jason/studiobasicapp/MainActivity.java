@@ -59,13 +59,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.action_installedapp2) {
-            //Toast.makeText(this,"InstalledApp2 is clicked", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, InstalledApp2.class);
-            startActivity(intent);
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 }
