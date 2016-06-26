@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //toolbar.setNavigationIcon(R.drawable.toolbarnavigationicon);
+        //toolbar.setNavigationIcon(R.drawable.toolbarnavigationico n);
         //toolbar.setLogo(R.drawable.toolbarlogo);
         setSupportActionBar(toolbar);
 
@@ -55,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_installedapp) {
             //Toast.makeText(this,"InstalledApp is clicked", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, InstalledApp.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_installedapp2) {
+            //Toast.makeText(this,"InstalledApp2 is clicked", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, InstalledApp2.class);
             startActivity(intent);
             return true;
         }

@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">StudioBasicApp</string>
     <string name="activity_installedapp">InstalledApp</string>
+    <string name="activity_installedapp2">InstalledApp2</string>
     <string name="action_settings">Settings</string>
     <string name="hello">Hello World, This is HongluoStudio!</string>
     <string name="action_installedapp">InstalledApp</string>
+    <string name="action_installedapp2">InstalledApp2</string>
 </resources>
