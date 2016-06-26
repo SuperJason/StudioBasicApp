@@ -17,35 +17,29 @@ import java.util.Map;
 public class InstalledApp2 extends ListActivity {
 
     private List<PackageInfo> pakeageinfo;
-    String name = "Name";
-    String disc = "Disc";
-
-    private String[] nameList;
-    private String[] discList;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         pakeageinfo = this.getPackageManager().getInstalledPackages(0);
 
-        setListAdapter(new SimpleAdapter(this, getListValues(), android.R.layout.simple_list_item_2,
-                new String[] {name, disc}, new int[] {android.R.id.text1, android.R.id.text2}));
+        SimpleAdapter adapter = new SimpleAdapter(this, getListValues(), R.layout.installedapp2,
+                new String [] {"name", "info", "icon"},
+                new int [] {R.id.name, R.id.info, R.id.icon});
+
+        setListAdapter(adapter);
     }
 
-    private List<Map<String, String>> getListValues() {
-        List<Map<String, String>> values = new ArrayList<Map<String, String>>();
+    private List<Map<String, Object>> getListValues() {
+        List<Map<String,  Object>> values = new ArrayList<Map<String,  Object>>();
         PackageInfo pinfo;
         int length = pakeageinfo.size();
-        nameList = new String[length];
-        discList = new String[length];
         for (int i = 0; i < length; i++) {
-            Map<String, String> v = new HashMap<String, String>();
+            Map<String, Object> v = new HashMap<String, Object>();
             pinfo = pakeageinfo.get(i);
-            String nnn =  pinfo.applicationInfo.loadLabel(this.getPackageManager()).toString();
-            nameList[i] = pinfo.applicationInfo.loadLabel(this.getPackageManager()).toString();
-            discList[i] = pinfo.applicationInfo.packageName;
-            v.put(name, nameList[i]);
-            v.put(disc,discList[i]);
+            v.put("name", pinfo.applicationInfo.loadLabel(this.getPackageManager()).toString());
+            v.put("info", pinfo.applicationInfo.packageName);
+            v.put("icon", pinfo.applicationInfo.loadIcon(this.getPackageManager()));
             values.add(v);
         }
         return values;
